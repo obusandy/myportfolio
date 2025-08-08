@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Vignette effect */
+.bg-gradient-radial-to-center {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
