@@ -6,7 +6,6 @@ export default function UXOptimizedHero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // ✅ FIX: Correctly type the useRef to avoid TypeScript errors.
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export default function UXOptimizedHero() {
         const rect = heroRef.current.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        setMousePosition({ x: x * 20, y: y * 20 }); // Increased sensitivity for more effect
+        setMousePosition({ x: x * 20, y: y * 20 });
       }
     };
 
@@ -36,12 +35,10 @@ export default function UXOptimizedHero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
     >
-      {/* Overlay for contrast */}
       <div className="absolute inset-0 z-5 bg-gradient-to-b from-black/10 via-transparent to-black/30 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
         <div className="relative flex justify-center md:justify-between items-center">
-          {/* Content - Properly sized and positioned on the left */}
           <div
             className={`
               max-w-lg space-y-6 text-center md:text-left
@@ -92,7 +89,6 @@ export default function UXOptimizedHero() {
             </div>
           </div>
 
-          {/* Main Profile Image for Desktop - Now larger and blended */}
           <div
             className={`
               relative transition-all duration-1000 ease-out
@@ -109,7 +105,6 @@ export default function UXOptimizedHero() {
               }px) translateZ(0)`,
             }}
           >
-            {/* Soft background glow that moves with mouse */}
             <div
               className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-transparent blur-3xl scale-125 group-hover:scale-150 transition-transform duration-700"
               style={{
@@ -119,7 +114,6 @@ export default function UXOptimizedHero() {
               }}
             />
 
-            {/* ✅ CHANGED: Image container is larger and uses CSS mask to blend */}
             <div className="relative w-80 h-96 lg:w-96 lg:h-[420px] group">
               <Image
                 src="/images/heroimageone.jpg"
@@ -127,7 +121,6 @@ export default function UXOptimizedHero() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{
-                  // This is the key for blending! It creates a soft oval fade-out effect.
                   maskImage:
                     "radial-gradient(ellipse 60% 80% at 50% 50%, black 40%, transparent 100%)",
                 }}
@@ -137,7 +130,6 @@ export default function UXOptimizedHero() {
           </div>
         </div>
 
-        {/* Mobile Image - Centered below text */}
         <div
           className={`
             md:hidden mt-16 flex justify-center
@@ -145,10 +137,9 @@ export default function UXOptimizedHero() {
             ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"}
           `}
         >
-          {/* ✅ CHANGED: Mobile image also uses a mask for blending */}
           <div className="relative group w-64 h-72">
             <Image
-              src="/images/heroimagetwo.jpg"
+              src="/images/heroimageone.jpg"
               alt="Sandra Obunga"
               fill
               className="object-cover"

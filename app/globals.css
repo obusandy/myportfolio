@@ -12,3 +12,21 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 }
+
+@layer components {
+  /* Form styling to match eki.my.id */
+  .form-input {
+    @apply w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white outline-none ring-cyan-500/50 transition-all duration-200 placeholder:text-white/50 focus:border-cyan-400 focus:ring-2;
+  }
+  .form-button {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-cyan-500 px-6 text-base font-semibold text-black transition-all duration-200 hover:bg-cyan-400 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-600;
+  }
+
+  /* Social card styling to match eki.my.id */
+  .social-card {
+    @apply flex items-center gap-4 rounded-lg border border-white/10 bg-white/5 p-4 transition-colors duration-200 hover:bg-white/10;
+  }
+  .social-icon-wrapper {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/5 text-cyan-300;
+  }
+}
