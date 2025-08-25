@@ -1,7 +1,7 @@
-// components/skills/SkillsTabs.tsx
+"use client";
+
 import { motion } from "framer-motion";
 import { LucideProps } from "lucide-react";
-import Link from "next/link";
 
 interface Tab {
   id: string;
@@ -24,15 +24,9 @@ export default function SkillsTabs({
     <div className="flex justify-center border-b border-white/10 pb-2">
       <div className="relative flex space-x-2 sm:space-x-4 rounded-full bg-white/5 p-1.5">
         {tabs.map((tab) => (
-          <Link
+          <button
             key={tab.id}
-            href={`/skills?tab=${tab.id}`}
-            onClick={(e) => {
-              e.preventDefault(); // Prevent full page reload
-              setActiveTab(tab.id);
-              // Update URL without reloading
-              window.history.pushState(null, "", `/skills?tab=${tab.id}`);
-            }}
+            onClick={() => setActiveTab(tab.id)}
             className={`${
               activeTab === tab.id
                 ? "text-white"
@@ -41,7 +35,7 @@ export default function SkillsTabs({
           >
             <tab.icon size={18} />
             <span>{tab.label}</span>
-          </Link>
+          </button>
         ))}
 
         {/* The sliding background element */}

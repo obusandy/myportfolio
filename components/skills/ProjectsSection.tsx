@@ -1,42 +1,36 @@
-// components/skills/ProjectsSection.tsx
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-// --- DUMMY DATA ---
-// Replace this with your actual project data.
-// For images, place them in your `public` folder and use the path like `/project-image.png`
 const projects = [
   {
-    title: "Project Alpha",
+    title: "HaloWash Laundry App",
     description:
-      "A full-stack web application for real-time collaboration, built with the latest technologies.",
-    imageUrl: "/images/businessbg.jpg",
+      "A modern laundry service app with real-time tracking and seamless payments.",
+    imageUrl: "/images/projectfour.PNG",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://halowash.vercel.app/Home",
   },
   {
-    title: "Project Beta",
+    title: "Amboseli Lewis School Management System",
     description:
-      "A mobile-first social media platform designed for creators, with a focus on performance.",
+      "A comprehensive school management system for efficient school operations.",
     imageUrl: "/images/projectthree.PNG",
     tags: ["React Native", "Firebase", "Node.js", "Express"],
     liveUrl: "https://amboseli-lewis-sms-btap.vercel.app/home",
   },
   {
-    title: "Project Beta",
-    description:
-      "A mobile-first social media platform designed for creators, with a focus on performance.",
+    title: "Cocoa House",
+    description: "An interactive website featuring cacao sourcing and supply",
     imageUrl: "/images/projectone.PNG",
     tags: ["React Native", "Firebase", "Node.js", "Express"],
     liveUrl: "https://houseofcocoa.onrender.com/",
   },
   {
-    title: "Project Beta",
+    title: "Portfolio",
     description:
-      "A mobile-first social media platform designed for creators, with a focus on performance.",
+      "A fun, interactive website powered by React, showcasing my work and skills.",
     imageUrl: "/images/projecttwo.PNG",
     tags: ["React Native", "Firebase", "Node.js", "Express"],
     liveUrl: "https://sandra-obunga.onrender.com/",
@@ -44,7 +38,6 @@ const projects = [
   // Add more projects here...
 ];
 
-// Animation variants for the container and items
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -55,7 +48,11 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100 } },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring" as const, stiffness: 100 },
+  },
 };
 
 export default function ProjectsSection() {
@@ -113,16 +110,6 @@ export default function ProjectsSection() {
               >
                 View Live <ArrowUpRight size={16} />
               </Link>
-              {project.repoUrl && (
-                <Link
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
-                >
-                  <Github size={16} /> Source Code
-                </Link>
-              )}
             </div>
           </div>
         </motion.div>

@@ -31,19 +31,22 @@ const leftPanelContent: PanelCopy = {
   supertitle: "FULL STACK DEVELOPER",
   title: "Software Engineering",
   story:
-    "I build web products end‑to‑end. After four years studying how businesses work, I doubled down on code—Meta's Front‑End program and ALX Software Engineering—and started shipping. I care about calm, reliable software: fast interfaces, clean architecture, and the kind of polish people can feel. Most days you'll find me turning fuzzy ideas into working products that earn trust.",
+    "Hello there, I'm Sandra and I solve problems by building stuff. Got into coding because I was curious about how websites work, and now I cant stop. My engineering training gave me the technical skills, but my real education comes from the process, designing a UI that makes sense, structuring a database that won't break, and hunting down that one bug that's been driving me crazy. When Im not coding, you'll find me painting or reading history. Both remind me that the best work is built with patience, empathy, and a deep respect for the craft.",
 };
 
 const rightPanelContent: PanelCopy = {
   supertitle: "ENTREPRENEUR",
   title: "Business Strategy",
   story:
-    "Entrepreneurship is where I learned what momentum really looks like. I studied it for four years, then worked on the ground in Kibra—training founders, running VSLA sessions, and keeping records straight, even across 40,000+ OVC profiles. That's where it clicked: growth is a system. Today I think in markets, moats, and partnerships—and I build with that lens. Tech and business aren't two paths for me; they're one.",
+    "Entrepreneurship is where I learned what momentum really looks like. I studied it for four years, then on the ground in Kibra Nairobi, working with real founders facing real problems. I helped people turn their ideas into plans, their plans into systems. That's where I learned business isn't about fancy frameworks, it's about seeing opportunities where others see obstacles and having the guts to build something from nothing. Today I think in markets, moats, and partnerships and build with that lens. Tech and business aren't two paths for me they're one.",
 };
 
 export default function AboutMePage() {
   return (
-    <main className="relative min-h-[100svh] overflow-hidden text-white">
+    <main
+      className="relative min-h-[100svh] overflow-hidden text-white"
+      id="AboutMe"
+    >
       <TechBackgroundScene />
 
       {/* Unified cool-blue wash under both panels */}
@@ -91,6 +94,13 @@ function StackedLayout() {
             <p className="text-base text-white/85 md:text-lg leading-relaxed">
               {leftPanelContent.story}
             </p>
+            <a
+              href="/SandraObungasCV.pdf"
+              download="SandraObungasCV.pdf"
+              className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-cyan-400 to-violet-400 px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm transition-transform duration-200 hover:scale-105 hover:from-cyan-300 hover:to-violet-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 pointer-events-auto md:px-5 md:py-2.5 md:text-sm"
+            >
+              Download CV
+            </a>
           </motion.div>
         </div>
       </div>
@@ -224,6 +234,7 @@ function InteractiveSplitScreen() {
           x={leftX}
           scale={leftScale}
           side="left"
+          showCvButton={true}
         />
       </motion.div>
 
@@ -562,19 +573,21 @@ function PanelContent({
   x,
   scale,
   side,
+  showCvButton = false,
 }: {
   content: PanelCopy;
   opacity: MotionValue<number>;
   x: MotionValue<number>;
   scale: MotionValue<number>;
   side: "left" | "right";
+  showCvButton?: boolean;
 }) {
   const isRight = side === "right";
   const align = isRight ? "ml-auto text-right" : "";
 
   return (
     <motion.div
-      className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-center p-8 md:p-16"
+      className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-start pt-32 p-8 md:p-16"
       style={{ opacity }}
       transition={{ type: "tween", duration: 0.5, ease: "easeOut" }}
     >
@@ -609,6 +622,22 @@ function PanelContent({
         >
           {content.story}
         </motion.p>
+        {showCvButton && (
+          <motion.div
+            className={`mt-6 flex ${isRight ? "justify-end" : "justify-start"}`}
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.45 }}
+          >
+            <a
+              href="/SandraObungasCV.pdf"
+              download="SandraObungasCV.pdf"
+              className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-cyan-400 to-violet-400 px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm transition-transform duration-200 hover:scale-105 hover:from-cyan-300 hover:to-violet-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 pointer-events-auto md:px-5 md:py-2.5 md:text-sm"
+            >
+              Download CV
+            </a>
+          </motion.div>
+        )}
       </motion.div>
     </motion.div>
   );

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function UXOptimizedHero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,7 +14,7 @@ export default function UXOptimizedHero() {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -67,12 +68,16 @@ export default function UXOptimizedHero() {
                 Full-Stack Developer & Tech Entrepreneur
               </p>
               <p className="text-base text-gray-400 leading-relaxed max-w-md mx-auto md:mx-0">
-                Crafting digital experiences that bridge innovative ideas with
-                scalable solutions.
+                Passionate about web development and entrepreneurship, I focus
+                on building useful, scalable solutions while staying open to
+                collaboration.
               </p>
             </div>
             <div className="pt-4">
-              <button className="group relative inline-flex items-center space-x-3 px-6 py-3 border border-cyan-400/40 text-cyan-400 font-light tracking-wider uppercase text-sm overflow-hidden transition-all duration-300 hover:text-black hover:border-cyan-400">
+              <Link
+                href="/#AboutMe"
+                className="group relative inline-flex items-center space-x-3 px-6 py-3 border border-cyan-400/40 text-cyan-400 font-light tracking-wider uppercase text-sm overflow-hidden transition-all duration-300 hover:text-black hover:border-cyan-400"
+              >
                 <span className="relative z-10">Explore Journey</span>
                 <div className="relative z-10">
                   <svg
@@ -85,7 +90,7 @@ export default function UXOptimizedHero() {
                   </svg>
                 </div>
                 <div className="absolute inset-0 bg-cyan-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-              </button>
+              </Link>
             </div>
           </div>
 
