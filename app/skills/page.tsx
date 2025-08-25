@@ -1,30 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Briefcase, Award, Layers } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import ProjectsSection from "@/components/skills/ProjectsSection";
-import CertsSection from "@/components/skills/Certssection";
 import StacksSection from "@/components/skills/StacksSection";
 import SkillsTabs from "@/components/skills/SkillsTabs";
+import CertsSection from "@/components/skills/Certssection";
 
 type SkillTabId = "projects" | "certificates" | "stacks";
 
-// Define the shape of our tabs
 const TABS = [
   { id: "projects", label: "Projects", icon: Briefcase },
   { id: "certificates", label: "Certificates", icon: Award },
   { id: "stacks", label: "Stacks", icon: Layers },
 ];
 
-interface SkillsPageProps {
-  activeTab?: SkillTabId;
-  setActiveTab?: (tab: string) => void;
-}
+export default function SkillsPage() {
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState<SkillTabId>("projects");
 
-export default function SkillsPage({
-  activeTab = "projects",
-  setActiveTab = () => {},
-}: SkillsPageProps) {
+  // Sync state with ?tab= in the URL (works with back/forward too)
+  useEffect(() => {
+    const t = searchParams.get("tab");
+    if (t === "projects" || t === "certificates" || t === "stacks") {
+      setActiveTab(t);
+    }
+  }, [searchParams]);
+
+  // Adapter so SkillsTabs (expects string) can update our typed state safely
+  const handleTabChange = (id: string) => {
+    if (id === "projects" || id === "certificates" || id === "stacks") {
+      setActiveTab(id);
+    }
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case "projects":
@@ -45,10 +55,9 @@ export default function SkillsPage({
           <SkillsTabs
             tabs={TABS}
             activeTab={activeTab}
-            setActiveTab={setActiveTab}
+            setActiveTab={handleTabChange}
           />
         </div>
-
         <div className="mt-12">{renderContent()}</div>
       </div>
     </section>

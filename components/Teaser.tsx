@@ -2,6 +2,7 @@
 
 import { Briefcase, Award, Layers } from "lucide-react";
 import type { LucideProps } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type SkillTabId = "projects" | "certificates" | "stacks";
 
@@ -12,11 +13,9 @@ type TeaserCard = {
   blurb: string;
 };
 
-export default function SkillsTeaser({
-  setActiveTab,
-}: {
-  setActiveTab: (id: SkillTabId) => void;
-}) {
+export default function SkillsTeaser() {
+  const router = useRouter();
+
   const cards: TeaserCard[] = [
     {
       title: "Projects",
@@ -33,13 +32,17 @@ export default function SkillsTeaser({
     { title: "Stacks", icon: Layers, tab: "stacks", blurb: "What I use daily" },
   ];
 
+  const handleCardClick = (tab: SkillTabId) => {
+    router.push(`/skills?tab=${tab}`);
+  };
+
   return (
     <section className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-16">
       <div className="grid gap-4 sm:grid-cols-3">
         {cards.map(({ title, icon: Icon, tab, blurb }) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleCardClick(tab)}
             className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-md transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 w-full text-left"
           >
             <div

@@ -1,10 +1,8 @@
-// components/skills/StacksSection.tsx
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   SiNextdotjs,
   SiReact,
   SiNodedotjs,
-  SiExpress,
   SiMongodb,
   SiPostgresql,
   SiPrisma,
@@ -16,7 +14,6 @@ import {
   SiFigma,
   SiVercel,
   SiFlutter,
-  SiLaravel,
   SiPhp,
   SiMysql,
 } from "react-icons/si";
@@ -50,12 +47,12 @@ const skills = [
   { name: "Git", icon: <SiGit className="h-8 w-8 text-orange-600" /> },
   { name: "Figma", icon: <SiFigma className="h-8 w-8" /> }, // Figma icon has its own colors
   { name: "Flutter", icon: <SiFlutter className="h-8 w-8 text-sky-500" /> },
-  { name: "Laravel", icon: <SiLaravel className="h-8 w-8 text-red-500" /> },
+  { name: "Laravel", icon: <SiVercel className="h-8 w-8 text-red-500" /> },
   { name: "PHP", icon: <SiPhp className="h-8 w-8 text-indigo-400" /> },
   { name: "MySQL", icon: <SiMysql className="h-8 w-8 text-blue-600" /> },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -65,7 +62,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
