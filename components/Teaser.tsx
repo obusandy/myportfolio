@@ -2,7 +2,6 @@
 
 import { Briefcase, Award, Layers } from "lucide-react";
 import type { LucideProps } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 type SkillTabId = "projects" | "certificates" | "stacks";
 
@@ -13,9 +12,11 @@ type TeaserCard = {
   blurb: string;
 };
 
-export default function SkillsTeaser() {
-  const router = useRouter();
+interface SkillsTeaserProps {
+  onTabSelect?: (tab: SkillTabId) => void;
+}
 
+export default function SkillsTeaser({ onTabSelect }: SkillsTeaserProps) {
   const cards: TeaserCard[] = [
     {
       title: "Projects",
@@ -33,7 +34,17 @@ export default function SkillsTeaser() {
   ];
 
   const handleCardClick = (tab: SkillTabId) => {
-    router.push(`/skills?tab=${tab}`);
+    // Call the callback to update the parent's state
+    onTabSelect?.(tab);
+
+    // Smooth scroll to the skills section
+    const skillsSection = document.getElementById("skills-section");
+    if (skillsSection) {
+      skillsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   return (

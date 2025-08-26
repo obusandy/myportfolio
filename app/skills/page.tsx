@@ -2,11 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { Briefcase, Award, Layers } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import ProjectsSection from "@/components/skills/ProjectsSection";
+import CertsSection from "@/components/skills/Certssection";
 import StacksSection from "@/components/skills/StacksSection";
 import SkillsTabs from "@/components/skills/SkillsTabs";
-import CertsSection from "@/components/skills/Certssection";
 
 type SkillTabId = "projects" | "certificates" | "stacks";
 
@@ -16,22 +15,33 @@ const TABS = [
   { id: "stacks", label: "Stacks", icon: Layers },
 ];
 
-export default function SkillsPage() {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<SkillTabId>("projects");
+interface SkillsPageProps {
+  activeTab?: SkillTabId;
+  onTabChange?: (tab: SkillTabId) => void;
+}
 
-  // Sync state with ?tab= in the URL (works with back/forward too)
+export default function SkillsPage({
+  activeTab: externalActiveTab,
+  onTabChange,
+}: SkillsPageProps) {
+  const [internalActiveTab, setInternalActiveTab] =
+    useState<SkillTabId>("projects");
+
+  // Use external tab if provided, otherwise use internal state
+  const activeTab = externalActiveTab || internalActiveTab;
+
+  // Update internal state when external tab changes
   useEffect(() => {
-    const t = searchParams.get("tab");
-    if (t === "projects" || t === "certificates" || t === "stacks") {
-      setActiveTab(t);
+    if (externalActiveTab) {
+      setInternalActiveTab(externalActiveTab);
     }
-  }, [searchParams]);
+  }, [externalActiveTab]);
 
-  // Adapter so SkillsTabs (expects string) can update our typed state safely
+  // Handle tab change from SkillsTabs component
   const handleTabChange = (id: string) => {
     if (id === "projects" || id === "certificates" || id === "stacks") {
-      setActiveTab(id);
+      setInternalActiveTab(id);
+      onTabChange?.(id);
     }
   };
 
@@ -49,7 +59,7 @@ export default function SkillsPage() {
   };
 
   return (
-    <section className="relative z-10 px-4 sm:px-6 lg:px-8">
+    <section id="skills-section" className="relative z-10 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-4">
         <div className="mt-8">
           <SkillsTabs

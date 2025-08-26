@@ -6,8 +6,8 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import HackerNavbar from "@/components/HackerNavbar";
 import {
   Mail,
+  X,
   Linkedin,
-  Twitter,
   Github,
   Send,
   LoaderCircle,
@@ -204,15 +204,15 @@ function ConnectWithMe() {
       href: LINKEDIN_URL,
     },
     {
-      icon: Twitter,
+      icon: X,
       title: "Follow Me",
-      subtitle: "@SandraObunga",
+      subtitle: "on X",
       href: X_URL,
     },
     {
       icon: Github,
       title: "See My Code",
-      subtitle: "@SandraObunga",
+      subtitle: "on GitHub",
       href: GITHUB_URL,
     },
     {
