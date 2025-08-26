@@ -5,9 +5,9 @@ import HeroSection from "@/components/HeroSection";
 import SkillsTeaser from "@/components/Teaser";
 import TechBackgroundScene from "@/components/TechBackgroundScene";
 import React, { useState } from "react";
-import SkillsPage from "./skills/page";
 import ContactPage from "./contact/page";
 import Footer from "@/components/Footer";
+import SkillsContent from "./skills/SkillsContent";
 
 type SkillTabId = "projects" | "certificates" | "stacks";
 
@@ -32,7 +32,7 @@ export default function Home() {
         <HeroSection />
         <InteractiveSplitScreen />
         <SkillsTeaser onTabSelect={handleTeaserTabSelect} />
-        <SkillsPage
+        <SkillsContent
           activeTab={selectedSkillTab}
           onTabChange={handleSkillsTabChange}
         />
