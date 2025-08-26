@@ -15,10 +15,10 @@ import {
 } from "lucide-react";
 
 // --- CONFIGURATION ---
-const EMAIL = process.env.NEXT_MY_EMAIL;
-const LINKEDIN_URL = process.env.NEXT_MY_LINKEDIN_URL;
-const X_URL = process.env.NEXT_MY_X_URL;
-const GITHUB_URL = process.env.NEXT_MY_GITHUB_URL;
+const EMAIL = process.env.NEXT_PUBLIC_MY_EMAIL;
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_MY_LINKEDIN_URL;
+const X_URL = process.env.NEXT_PUBLIC_MY_X_URL;
+const GITHUB_URL = process.env.NEXT_PUBLIC_MY_GITHUB_URL;
 
 // Type-safe environment variables
 const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
