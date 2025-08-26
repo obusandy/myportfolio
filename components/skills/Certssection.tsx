@@ -11,14 +11,17 @@ interface Certificate {
 }
 
 const certificates: Certificate[] = [
-  { imageUrl: "/images/advanced react.PNG" },
+  { imageUrl: "/images/introduction.PNG" },
   { imageUrl: "/images/html and css in depth.PNG" },
+  { imageUrl: "/images/javascript.PNG" },
   { imageUrl: "/images/principles of UXUI.PNG" },
   { imageUrl: "/images/React Cert.PNG" },
-  { imageUrl: "/images/version control.PNG" },
-  { imageUrl: "/images/Coding Interview prep.PNG" },
   { imageUrl: "/images/React Native.PNG" },
+  { imageUrl: "/images/advanced react.PNG" },
+  { imageUrl: "/images/version control.PNG" },
+  { imageUrl: "/images/Coding interview prep.PNG" },
   { imageUrl: "/images/my final certificate.PNG" },
+  { imageUrl: "/images/ALX-Cert.png" },
 ];
 
 // Helpers
