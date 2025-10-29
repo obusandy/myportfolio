@@ -11,7 +11,7 @@ const projects = [
     title: "Meechum",
     description:
       "mini blogging.",
-    imageUrl: "/images/meechum.PNG",
+    imageUrl: "/images/meechum.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Framer-motion"],
     liveUrl: "https://meechum.vercel.app/",
   },
