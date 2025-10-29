@@ -241,7 +241,7 @@ export default function MeechumShowcase() {
                 animation: 'fadeInDown 0.8s ease-out 0.7s both'
               }}
             >
-             Here are some of mine, live from Meechum. Come on, let's blog.
+             Here are some of mine, live from Meechum. Come on, let`&apos;`s join the blog.
             </p>
           </div>
 
