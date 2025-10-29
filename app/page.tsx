@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import ContactPage from "./contact/page";
 import Footer from "@/components/Footer";
 import SkillsContent from "./skills/SkillsContent";
+import MeechumShowcase from "@/components/MeechumShowcase";
 
 type SkillTabId = "projects" | "certificates" | "stacks";
 
@@ -36,6 +37,7 @@ export default function Home() {
           activeTab={selectedSkillTab}
           onTabChange={handleSkillsTabChange}
         />
+        <MeechumShowcase />
         <ContactPage />
       </div>
       <Footer />
