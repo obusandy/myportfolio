@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
 /* Vignette effect */
 .bg-gradient-radial-to-center {
   position: absolute;

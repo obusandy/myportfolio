@@ -6,7 +6,8 @@ import HackerNavItem from "./HackerNavItem";
 
 const navItems = [
   { text: "Home", href: "/" },
-  { text: "About", href: "/about" },
+  { text: "About", href: "/#AboutMe" },
+  { text: "Projects", href: "/#skills-section" },
   { text: "Services", href: "/services" },
   { text: "Contact", href: "/contact" },
 ];
