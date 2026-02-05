@@ -207,7 +207,7 @@ export default function ServicesPage() {
               )}
             >
               <MessageCircle className="w-4 h-4" />
-              Let's Chat Business 
+              Let&apos;s Chat Business 
             </Link>
           </div>
         </div>
@@ -248,7 +248,7 @@ export default function ServicesPage() {
           </h1>
           
           <p className="text-base sm:text-lg text-gray-400 leading-relaxed max-w-2xl">
-              The gap between traffic and sales isn't luck, it's fixable. 
+              The gap between traffic and sales isn&apos;t luck, it&apos;s fixable. 
           </p>
         </motion.header>
 
