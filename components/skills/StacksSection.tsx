@@ -16,7 +16,10 @@ import {
   SiFlutter,
   SiPhp,
   SiMysql,
+  SiOpenai,
 } from "react-icons/si";
+import { TbBrain } from "react-icons/tb"; // Great for AI
+import { FaMobileAlt } from "react-icons/fa";
 
 const skills = [
   {
@@ -45,9 +48,12 @@ const skills = [
   },
   { name: "MongoDB", icon: <SiMongodb className="h-8 w-8 text-green-600" /> },
   { name: "Git", icon: <SiGit className="h-8 w-8 text-orange-600" /> },
-  { name: "Figma", icon: <SiFigma className="h-8 w-8" /> }, // Figma icon has its own colors
-  { name: "Flutter", icon: <SiFlutter className="h-8 w-8 text-sky-500" /> },
+  { name: "Figma", icon: <SiFigma className="h-8 w-8" /> },
   { name: "Laravel", icon: <SiVercel className="h-8 w-8 text-red-500" /> },
+  { name: "React Native", icon: <SiReact className="h-8 w-8 text-red-500" /> },
+  { name: "Flutter", icon: <SiFlutter className="h-8 w-8 text-red-500" /> },
+  { name: "AI", icon: <TbBrain className="h-8 w-8 text-red-500" /> },
+  { name: "OpenAI / LLMs", icon: <SiOpenai className="h-8 w-8 text-red-500" /> },
   { name: "PHP", icon: <SiPhp className="h-8 w-8 text-indigo-400" /> },
   { name: "MySQL", icon: <SiMysql className="h-8 w-8 text-blue-600" /> },
 ];
